@@ -138,7 +138,11 @@ async function addTask() {
       },
       body: JSON.stringify(task),
     });
-
+    console.log(response );
+    if(!response.ok){
+      window.location.href = "./login.html";
+      alert("You must be logged in!")
+    }
     const newTask = await response.json();
     tasks.push(newTask);
     renderTasks();
