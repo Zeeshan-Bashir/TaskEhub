@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>taskEhub</title>
+  <link rel="icon" href="/fav.png" type="image/png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+    <!-- task manager section -->
+    <section class="task-manager">
+      <nav>
+        <header>  
+          <h1><i class="fas fa-list-check"></i> TaskEhub</h1>
+        </header>
+        <div class="nav-actions">
+          <button id="darkModeToggle" class="btn-icon" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button id="logoutBtn" class="btn-primary">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </nav>
+      
+
+      <div class="form-section">
+        <input type="text" id="taskName" placeholder="What needs to be done?" required />
+        <div class="input-group">
+          <input type="date" id="taskDate" required />
+          <input type="time" id="taskTime" required />
+        </div>
+        <div class="input-group">
+          <select id="taskCategory" required>
+            <option value="" disabled selected>Category</option>
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Health">Health</option>
+            <option value="Education">Education</option>
+          </select>
+          <select id="taskPriority" required>
+            <option value="" disabled selected>Priority</option>
+            <option value="To Do">To Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </div>
+
+        <textarea id="taskDescription" placeholder="Add details..." rows="3"></textarea>
+        <div class="input-group">
+          <label for="taskColor">Task Color</label>
+          <input type="color" id="taskColor" value="rgb(0,0,0)" />
+        </div>
+
+        <button id="addTaskBtn" class="btn-primary">
+          <i class="fas fa-plus"></i> Add Task
+        </button>
+      </div>
+
+      <div class="filter-section">
+        <button data-filter="All" class="btn-filter active">
+          <i class="fas fa-globe"></i> All
+        </button>
+        <button data-filter="Work" class="btn-filter">
+          <i class="fas fa-briefcase"></i> Work
+        </button>
+        <button data-filter="Personal" class="btn-filter">
+          <i class="fas fa-user"></i> Personal
+        </button>
+        <button data-filter="Shopping" class="btn-filter">
+          <i class="fas fa-shopping-cart"></i> Shopping
+        </button>
+        <button data-filter="Health" class="btn-filter">
+          <i class="fas fa-heartbeat"></i> Health
+        </button>
+        <button data-filter="Education" class="btn-filter">
+          <i class="fas fa-graduation-cap"></i> Education
+        </button>
+      </div>
+
+      <div class="stats-section">
+        <p>Total Tasks: <span id="totalTasks">0</span></p>
+        <p>Completed Tasks: <span id="completedTasks">0</span></p>
+
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+          <span class="progress-text" id="progressText">0% Completed</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- task list section goes here -->
+    <section class="task-list-section">
+      <div id="notificationArea" class="notification-area"></div>
+
+      <input type="text" id="searchTask" placeholder="Search tasks..." class="search-input" />
+
+      <div id="taskList" class="task-list">
+        <div class="task-item">
+          <!-- Task items will go here (cards)-->
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- footer section goes here -->
+
+  <div class="foot">
+    <footer class="footer">
+      <ul>
+        <li class="list active">
+          <a href="https://www.instagram.com/shaanu_mir" target="_blank" rel="noopener noreferrer"
+            aria-label="Follow on Instagram">
+
+            <span class="icon"><i class="fab fa-instagram"></i></span>
+            <span class="text">Instagram</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+            <span class="icon"><i class="fab fa-twitter"></i></span>
+            <span class="text">Twitter</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="https://www.linkedin.com/in/zeeshan-bashir-70851b262/" target="_blank" rel="noopener noreferrer">
+            <span class="icon"><i class="fab fa-linkedin"></i></span>
+            <span class="text">LinkedIn</span>
+          </a>
+        </li>
+        
+        <li class="list">
+          <a href="https://github.com/zeeshanbashir" target="_blank" rel="noopener noreferrer">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span class="text">GitHub</span>
+          </a>
+        </li>
+        <div class="indicator"></div>
+      </ul>
+    </footer>
+
+    <div class="foo">
+        <p>© 2024 TaskEhub. All rights reserved.</p>
+    </div>
+  </div>
+
+
+ <script src="./app.js"></script>
+
+</body>
+
+</html>
