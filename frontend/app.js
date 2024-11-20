@@ -238,7 +238,26 @@ async function toggleComplete(id) {
 
 async function deleteTask(id) {
   try {
-    await fetch(`http://localhost:5000/tasks/${id}`, { method: "DELETE" });
+    const tkn = localStorage.getItem("authToken");
+    if (!tkn) {
+      console.error("No authentication token found.");
+      return;
+    }
+
+    const response = await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${tkn}`, // Include token for authentication
+      },
+    });
+
+    if (!response.ok) {
+      console.error(`Failed to delete task: ${response.statusText}`);
+      return;
+    }
+
+    // Remove task from the list and update UI
     tasks = tasks.filter((t) => t._id !== id);
     renderTasks();
     updateStats();
@@ -247,6 +266,7 @@ async function deleteTask(id) {
     console.error("Failed to delete task:", error);
   }
 }
+
 
 // Function to filter tasks
 function filterTasks(category) {
